@@ -1,0 +1,45 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.79.130:8761/eureka/
+server:
+  port: 8764
+spring:
+  application:
+    name: service-auth
+  redis:
+    host: 127.0.0.1
+    port: 6379
+#    password: null     # 密码,默认密码为空
+    timeout: 10000
+    database: 0         # Redis数据库索引（默认为0）,如果设置为1，那么存入的key-value都存放在select 1中
+    max-wait: 30000     # 连接池最大阻塞等待时间（使用负值表示没有限制）
+    max-active: 100     # 连接池最大连接数（使用负值表示没有限制）
+    max-idle: 20        # 连接池中的最大空闲连接
+    min-idle: 0         # 连接池中的最小空闲连接
+    #cluster:           # 集群配置
+      #nodes: 127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384,127.0.0.1:6385,127.0.0.1:6386
+      #max-redirects: 2  # 最大重定向次数
+  devtools:
+    restart:
+      enabled: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.79.130:3306/sys_auth?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+    hikari: # springboot 2.0 整合了hikari ,据说这是目前性能最好的java数据库连接池
+      username: root
+      password: Ai1314520..
+  jpa:
+    hibernate:
+      ddl-auto: update    # 第一次建表create  后面用update，要不然每次重启都会新建表
+      #自己重写的配置类，默认使用utf8编码
+      dialect: com.forezp.serviceauth.config.config.MySQLConfig
+    show-sql: true
+    #不加下面这句则不会默认创建MyISAM引擎的数据库
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+jwt:
+  secret: 35713a66d8a9123a119633448cd859a4
+  # 有效期，单位秒，默认2周
+  expirationTimeInSecond: 89280
+Base64:
+  key: 24f42dfc8c4ba981493ae57425f409b3

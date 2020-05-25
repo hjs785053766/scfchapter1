@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: business-config-client
+  zipkin:
+    base-url: http://192.168.79.130:9411
+  cloud:
+    config:
+      label: master
+      profile: dev
+      discovery:
+        enabled: true
+        serviceId: service-config
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+  rabbitmq:
+    host: 192.168.79.130
+    port: 5672
+    username: admin
+    password: admin
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.79.130:8761/eureka/

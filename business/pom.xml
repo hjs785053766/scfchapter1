@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.forezp</groupId>
+        <artifactId>sc-f-chapter1</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <artifactId>business</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>business-api</module>
+        <module>business-config-client</module>
+        <module>business-modular-hi</module>
+        <module>business-modular-feign</module>
+    </modules>
+
+    <dependencies>
+        <!-- swagger-ui微服务引用 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+    </dependencies>
+</project>

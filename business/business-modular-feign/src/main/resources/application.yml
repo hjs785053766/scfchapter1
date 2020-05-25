@@ -1,0 +1,11 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: business-modular-feign
+  zipkin:
+    base-url: http://192.168.79.130:9411
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.79.130:8761/eureka/
